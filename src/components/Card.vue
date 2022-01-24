@@ -1,6 +1,6 @@
 <template>
   <div>
-        <article class="card" :style="cardStyle"  >
+        <article class="card" :style="cardStyle" @click="$emit('click')" >
             <img class="logo" :src="item.vendor.logo" alt="logo">
             <div class="upper">
                 <img :src="item.vendor.wifi" alt="">
@@ -63,6 +63,9 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0;
+}
 div{
     font-family: PT Mono;
 }
@@ -72,7 +75,7 @@ div{
     height: 241px;
     border-radius: 0.5rem;
     box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.1);
-    margin-top: 3rem; 
+    /* margin-top: 3rem;  */
     position: relative;
     align-self: center;
     box-shadow: 2px 2px 18px -10px rgba(0,0,0,0.75);

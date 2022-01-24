@@ -36,7 +36,7 @@ export default {
   methods:{
     cardView(previewData){
       this.card = previewData
-      
+
     },
     // changeCardNum(newCardNum){
     //   console.log('Yuval card num', newCardNum)
@@ -70,6 +70,7 @@ main{
 h1{
   width: 15rem;
   margin-top: 2rem;
+  margin-bottom: 3rem;
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }
