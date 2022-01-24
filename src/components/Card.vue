@@ -35,7 +35,7 @@ export default {
             
         }
     },
-     computed:{
+    computed:{
      
     cardStyle(){
         if(this.item){

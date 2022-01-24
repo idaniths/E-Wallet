@@ -6,7 +6,7 @@
     <Home v-if="currentView == 'Home'"
           @send="currentView = 'Addcard'"
           :displayCard="displayCard"
-          :newArr="newArr"/>
+          :cards="newArr"/>
     <Addcard v-else-if="currentView == 'Addcard'"
           @sendit="displayCard"/>
 
@@ -22,8 +22,8 @@ export default {
   methods:{
     displayCard(card){
       this.currentView = 'Home'
-     console.log(card);
-    this.newArr.push({...card})
+      console.log(card);
+      this.newArr.push({...card})
       
     },
     
@@ -36,10 +36,6 @@ export default {
     }
 
   },
-  
-    
-  
-
   }
 
 </script>

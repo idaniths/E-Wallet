@@ -1,8 +1,14 @@
 <template>
   <div class="home">
     <h1>E-WALLET</h1>
-
-    <Card v-for="card in newArr" :key="card.cardNumber"/>
+    <div v-if="activeCard">
+      <Card :card="activeCard" />
+    </div>
+    <Card v-for="card in filterActive" 
+        :key="card.cardNumber" 
+        @click.native="()=>makeActive(card)" 
+        :card="card"
+        />
 
     <button @click="currentView">ADD A NEW CARD</button>
     
@@ -12,14 +18,23 @@
 <script>
 import Card from '../components/Card.vue'
 export default {
-  props:{newArr: Array},
+  props:{cards: Array},
    components: {Card},
+
+   computed:{
+     filterActive(){
+        return this.cards.filter(card => card != this.activeCard)
+     }
+   },
    data(){
     return{
-
+      activeCard: this.cards[0]
     }
   },
   methods:{
+    makeActive(card){
+      this.activeCard = card
+    },
     currentView(){
       this.$emit('send')
       
