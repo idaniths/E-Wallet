@@ -85,7 +85,7 @@ button{
 }
 .card-list{
   display: grid;
-  grid-auto-rows: 3rem;
+  grid-auto-rows: 47px;
   transform: translateY(-10rem);
   
 }

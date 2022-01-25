@@ -71,7 +71,7 @@ div{
 }
 .card{
     background-color: #D0D0D0;
-    width: 390px;
+    width: 382px;
     height: 241px;
     border-radius: 0.5rem;
     box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.1);
@@ -109,8 +109,7 @@ div{
     padding-top: 0rem;
     padding-bottom: 1rem;
 }
-.cardholder_name_valid{
-    
+.cardholder_name_valid{ 
     margin-left: 1rem;
     margin-right: 1rem;
     display: flex;

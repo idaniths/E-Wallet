@@ -24,9 +24,10 @@ export default {
       this.currentView = 'Home'
       console.log(card);
       this.newArr.push({...card})
+      localStorage.setItem("cards", JSON.stringify(this.newArr))
       
     },
-    
+ 
   },
   data(){
     return{
@@ -36,6 +37,10 @@ export default {
     }
 
   },
+      beforeMount(){
+       if (localStorage.cards)
+       this.newArr = JSON.parse(localStorage.getItem("cards"));
+      },
   }
 
 </script>

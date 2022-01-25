@@ -65,7 +65,7 @@ export default {
             year: 22, 
             vendor: {
                 name: 'Bitcoin',
-                logo: require("../assets/bitcoin.svg"),
+                logo: require("../assets/bitcoin_copy.svg"),
                 wifi: require("../assets/wifi.svg"),
                 background: "linear-gradient(248.3deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 100%), #D0D0D0" 
                 },
@@ -159,15 +159,17 @@ form{
 }
 
 input{
-    max-width: 382px;
+    max-width: 376px;
     height: 56px;
     border-radius: 0.5rem;
     background-color: white;
     border: 1px solid black;
+    font-size: 1.5rem;
+   
 
 } 
 .vendor{
-    width: 390px;
+    width: 382px;
     height: 56px;
     font-size: 1rem;
     border-radius: 0.5rem;
@@ -194,7 +196,7 @@ input{
 }
 .month_year label:nth-child(2){
    
-    transform:translateX(180px);
+    transform:translateX(170px);
 
 }
 .month_year_select{
@@ -208,7 +210,7 @@ label{
 
 button{
     margin-top: 2.5rem;
-    width: 390px;
+    width: 382px;
     height: 80px;
     background-color: black;
     color: white;
