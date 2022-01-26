@@ -3,14 +3,15 @@
     <h1>E-WALLET</h1>
     <!-- <span>ACTIVE CARD</span> -->
     <div class="active-card" v-if="activeCard">
-    <div :class="{overlay: !hidden}"></div>
-    <div class="dialog" v-if="!hidden">
-    <ActiveCardDialog v-if="showDialog"
-      @cancel="closeDialog"
-      @delete="removeCard"/>
+      <div :class="{overlay: !hidden}"></div>
+        <div class="dialog" v-if="!hidden">
+          <ActiveCardDialog v-if="showDialog"
+          @cancel="closeDialog"
+          @delete="removeCard"/>
+        </div>
+        <Card :item="activeCard" @double="showDialog"/> 
     </div>
-      <Card :item="activeCard" @double="showDialog"/> 
-    </div>
+    
     <div class="card-list">
     <Card v-for="card in cards" 
         :key="card.cardNumber" 
