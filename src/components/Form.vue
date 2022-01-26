@@ -5,11 +5,13 @@
 
             <label>CARD NUMBER</label>
             <input required class="cardnumber" type="text" 
-                    placeholder="XXXX XXXX XXXX XXXX" 
-                    inputmode="numeric" 
-                    maxlength="19" onkeypress="return /[0-9, ' ']/i.test(event.key)" 
-                    v-model="form.cardNumber" >
+                    placeholder="" 
+                    v-model="form.cardNumber" 
+                    maxlength="16"
+                    >
 
+                    <!-- inputmode="numeric" 
+                     onkeypress="return /[0-9, ' ']/i.test(event.key)"  -->
             <label>CARD HOLDER NAME</label>
             <input required class="cardname" type="text" 
                     onkeypress="return /[a-ö, ' ']/i.test(event.key)" 
@@ -38,7 +40,7 @@
             
         <label>VENDOR</label>
         <select class="vendor" v-model="form.vendor">
-            
+            <option value="null"></option>
             <option v-for="vendor in vendors" 
             v-bind:key="vendor.name" 
             :value="vendor">
@@ -56,6 +58,7 @@
 <script>
 
 export default { 
+    props:{cards: Array},
     data(){
         return{
             form:{
@@ -114,29 +117,27 @@ export default {
           
     }
 },
+    
     computed:{
-      
-    // cardStyle(){
-    //     return{
-    //     background: this.form.vendor.background,
-    //     color: this.form.vendor.color,
-    //     shadow: this.form.vendor.shadow
         
-    //     };
-    // },
+        
     },
     methods:{
         addCard(){
-        this.$emit('add-card', {...this.form});
+            if (this.cards.find((number) => number.cardNumber == this.form.cardNumber)){
+              alert('Detta kort finns redan i din e-wallet!')
+            }else{
+            this.$emit('add-card', {...this.form});
+            }
+        },
+        cardPreview(){
+            this.$emit('preview', this.form)
+        },
        
+        
+          
+        },
     
-    },
-    cardPreview(){
-        this.$emit('preview', this.form)
-    }
-   
-    
-    }
 }
 
 
@@ -162,9 +163,10 @@ input{
     max-width: 376px;
     height: 56px;
     border-radius: 0.5rem;
+    padding-left: 0.8rem;
     background-color: white;
     border: 1px solid black;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
    
 
 } 
@@ -181,6 +183,7 @@ input{
     width: 175px;
     height: 56px;
     font-size: 1rem;
+    padding-left: 0.5rem;
     border-radius: 0.5rem;
     background-color: white;
     border: 1px solid black;

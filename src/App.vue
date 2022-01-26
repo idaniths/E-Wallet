@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <nav>
-     
-    </nav>
     <Home v-if="currentView == 'Home'"
           @send="currentView = 'Addcard'"
           :displayCard="displayCard"
-          :cards="newArr"/>
+          :cards="newArr"
+          @updateCardArray="updateLocalStorage"
+          />  
     <Addcard v-else-if="currentView == 'Addcard'"
-          @sendit="displayCard"/>
+          @sendit="displayCard" :cards="newArr"/>
 
   </div>
 </template>
@@ -22,12 +21,13 @@ export default {
   methods:{
     displayCard(card){
       this.currentView = 'Home'
-      console.log(card);
       this.newArr.push({...card})
-      localStorage.setItem("cards", JSON.stringify(this.newArr))
-      
+      this.updateLocalStorage(this.newArr)
     },
- 
+    updateLocalStorage(){
+      localStorage.setItem("cards", JSON.stringify(this.newArr)) 
+    },
+   
   },
   data(){
     return{
@@ -35,12 +35,12 @@ export default {
       
       newArr:[]
     }
-
   },
-      beforeMount(){
-       if (localStorage.cards)
-       this.newArr = JSON.parse(localStorage.getItem("cards"));
-      },
+  beforeMount(){
+    if (localStorage.cards != 'undefined'){
+    this.newArr = JSON.parse(localStorage.getItem("cards"));
+    }
+  },
   }
 
 </script>
@@ -50,9 +50,12 @@ export default {
   margin: 0;
 }
 body{
-  background-color: cadetblue;
+  background-color: rgb(39, 39, 39);
+  display: flex;
+  justify-content: center;
 }
 #app{
+margin: 2rem;
 display: flex;
 justify-content: center;
 width: 414px;

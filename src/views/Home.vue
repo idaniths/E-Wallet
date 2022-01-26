@@ -1,16 +1,24 @@
 <template>
-  <div class="home">
+  <div class="home" >
     <h1>E-WALLET</h1>
+    <!-- <span>ACTIVE CARD</span> -->
     <div class="active-card" v-if="activeCard">
-      <Card :item="activeCard" />
+    <div :class="{overlay: !hidden}"></div>
+    <div class="dialog" v-if="!hidden">
+    <ActiveCardDialog v-if="showDialog"
+      @cancel="closeDialog"
+      @delete="removeCard"/>
+    </div>
+      <Card :item="activeCard" @double="showDialog"/> 
     </div>
     <div class="card-list">
     <Card v-for="card in cards" 
         :key="card.cardNumber" 
-        @click="makeActive(card)" 
+        @click="makeActive(card)"
         :item="card"
         />
     </div>
+    
 
     <button @click="currentView">ADD A NEW CARD</button>
     
@@ -19,28 +27,52 @@
 
 <script>
 import Card from '../components/Card.vue'
+import ActiveCardDialog from "../components/ActiveCardDialog.vue"
+
 export default {
   props:{cards: Array},
-   components: {Card},
+   components: {Card, ActiveCardDialog},
 
    computed:{
-    //  filterActive(){
-    //     return this.cards.filter(card => card != this.activeCard)
-    //  }
+
    },
    data(){
     return{
-      activeCard: this.cards[0]
+      activeCard: this.cards[0],
+      dialog: false,
+      hidden: true
     }
   },
   methods:{
     makeActive(card){
       this.activeCard = card
     },
+    removeCard(){
+      this.cards.splice(this.cards.indexOf(this.activeCard), 1);
+      this.activeCard = this.cards[0]
+      this.$emit('updateCardArray', this.cards)
+      this.hidden = true
+    },
+    showDialog(){
+      if(this.hidden == true){
+        this.hidden = false
+      }else{
+        this.hidden = true
+      }
+    
+    },
+    closeDialog(){
+        if(this.dialog == false){
+          this.hidden = true
+        }else{
+          this.hidden = false
+        }
+    },
     currentView(){
       this.$emit('send')
       
     },
+
   }
 };
 </script>
@@ -56,6 +88,7 @@ export default {
   /* justify-content: center; */
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 p{
   text-align: center;
@@ -86,7 +119,22 @@ button{
 .card-list{
   display: grid;
   grid-auto-rows: 47px;
-  transform: translateY(-10rem);
-  
+  transform: translateY(-10rem);  
 }
+.dialog{
+  align-self: flex-start;
+
+}
+.overlay{
+  position: fixed;
+  z-index: 1;
+  opacity: 60%;
+  background-color: black;
+  width: 415px;
+  height: 898px;
+  right: -1.1rem;
+  top: -6.35rem;
+}
+
+
 </style>

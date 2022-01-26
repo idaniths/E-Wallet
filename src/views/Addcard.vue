@@ -3,7 +3,7 @@
     <h1>ADD A NEW BANK CARD</h1>
     <Card :item="card" />
     <Form @add-card="currentView" 
-    @preview="cardView"/>
+    @preview="cardView" :cards="cards"/>
   </main>
 </template>
 
@@ -11,7 +11,7 @@
 import Form from '../components/Form.vue'
 import Card from '../components/Card.vue'
 export default {
-  
+  props:{cards: Array},
   components: {Form, Card},
 
   data(){

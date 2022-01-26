@@ -1,12 +1,12 @@
 <template>
   <div>
-        <article class="card" :style="cardStyle" @click="$emit('click')" >
+        <article class="card" :style="cardStyle" @click="$emit('click')" @dblclick="$emit('double')" >
             <img class="logo" :src="item.vendor.logo" alt="logo">
             <div class="upper">
                 <img :src="item.vendor.wifi" alt="">
                 <img src="../assets/chip.svg" alt="">
             </div>
-                <p class=cardnumber_number >{{item.cardNumber}} </p>
+                <p class=cardnumber_number >{{this.inputNumber()}} </p>
             <div class="lower">    
                 <div class="cardholder_name_valid">
                     <p>CARDHOLDER NAME</p>
@@ -46,12 +46,27 @@ export default {
             }
         }
         return null
-    }
     },
+    
+        
+    
+},
      
     methods:{
-    //     oncardChange(item){
-    //         this.$emit('changeCardNum', item)
+        inputNumber() {
+            if (this.item.cardNumber.length <= 16) {
+            
+            
+      if(this.item.cardNumber == ''){
+        return 'XXXX XXXX XXXX XXXX'
+      } else {
+        return this.item.cardNumber.replace(/\d{4}(?=.)/g, '$& ').substring(0,19);
+      }
+            }
+        },
+        
+        //     oncardChange(item){
+            //         this.$emit('changeCardNum', item)
     //     }
 
     // },
@@ -102,6 +117,8 @@ div{
     margin-left: 1rem;
     margin-right: 1rem;
     font-family: PT Mono;
+    text-shadow: 1px 0px 0px rgba(0, 0, 0, 0.15), 0px 1px 0px rgba(0, 0, 0, 0.05),  -1px 0px 0px rgba(0, 0, 0, 0.05), 0px -1px 0px rgba(0, 0, 0, 0.15);
+    
     
 }
 .lower{
