@@ -18,19 +18,17 @@ export default {
     return{
       card: 
         {
-            cardNumber: '',
-            cardName: '',
-            month: 0,
-            year: 22, 
-            vendor: {
-                name: 'Bitcoin',
-                logo: require("../assets/bitcoin_copy.svg"),
-                wifi: require("../assets/wifi.svg"),
-                background: "linear-gradient(248.3deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 100%), #D0D0D0" 
-                },
+        cardNumber: '',
+        cardName: '',
+        month: 0,
+        year: 22, 
+        vendor: {
+            name: 'Bitcoin',
+            logo: require("../assets/bitcoin_copy.svg"),
+            wifi: require("../assets/wifi.svg"),
+            background: "linear-gradient(248.3deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 100%), #D0D0D0" 
             },
-
-      
+        },
     }
   },
   methods:{
@@ -65,7 +63,6 @@ main{
   justify-content: center;
   align-items: center;
   margin: 0;
-  
 }
 h1{
   width: 15rem;
@@ -75,7 +72,6 @@ h1{
   font-family: 'Roboto', sans-serif;
 }
 button{
-  
   padding: 1.5rem 8rem;
   background-color: black;
   color: white; 

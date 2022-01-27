@@ -1,25 +1,25 @@
 <template>
   <div class="home" >
     <h1>E-WALLET</h1>
-    <!-- <span>ACTIVE CARD</span> -->
+
     <div class="active-card" v-if="activeCard">
-      <div :class="{overlay: !hidden}"></div>
+      <!-- <div :class="{overlay: !hidden}"></div> -->
         <div class="dialog" v-if="!hidden">
           <ActiveCardDialog v-if="showDialog"
           @cancel="closeDialog"
-          @delete="removeCard"/>
+          @delete="removeCard"/> 
         </div>
         <Card :item="activeCard" @double="showDialog"/> 
     </div>
     
     <div class="card-list">
+      <!-- <div :class="{overlay: !hidden}"></div> -->
     <Card v-for="card in cards" 
         :key="card.cardNumber" 
         @click="makeActive(card)"
         :item="card"
         />
     </div>
-    
 
     <button @click="currentView">ADD A NEW CARD</button>
     
@@ -33,7 +33,6 @@ import ActiveCardDialog from "../components/ActiveCardDialog.vue"
 export default {
   props:{cards: Array},
    components: {Card, ActiveCardDialog},
-
    computed:{
 
    },
@@ -60,7 +59,6 @@ export default {
       }else{
         this.hidden = true
       }
-    
     },
     closeDialog(){
         if(this.dialog == false){
@@ -86,7 +84,6 @@ export default {
 }
 .home{
   display: flex;
-  /* justify-content: center; */
   flex-direction: column;
   justify-content: space-between;
   position: relative;
@@ -109,6 +106,7 @@ button{
   background-color: white;
   border-radius: 0.5rem;
   border: 1px solid black;
+  font-size: 22px;
   
 }
 .active-card{
@@ -122,19 +120,13 @@ button{
   grid-auto-rows: 47px;
   transform: translateY(-10rem);  
 }
-.dialog{
-  align-self: flex-start;
-
-}
 /* .overlay{
   position: fixed;
   z-index: 1;
   opacity: 60%;
   background-color: black;
-  width: 100vw;
-  height: 100vh;
-  right: -1.1rem;
-  top: -6.35rem;
+  width: 414px;
+  height: 896px;
 } */
 
 

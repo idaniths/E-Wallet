@@ -24,7 +24,6 @@ div{
     
 }
 dialog{
-
     position: absolute;
     z-index: 1;
     width: 20rem;
@@ -32,10 +31,9 @@ dialog{
     font-size: 1rem;
     border: 1px solid black;
     top: 2rem;
+    left: 0.9rem;
     border-radius: 0.5rem;
     text-align: center;
-    left: 0.9rem;
-
 }
 h2{
     font-family: 'Roboto', sans-serif;
@@ -51,8 +49,6 @@ button{
     border: 1px solid black;
     border-radius: 0.3rem;
 }
-/* dialog button:nth-child(2){
-    background-color: rgb(7, 39, 7);
-} */
+
 
 </style>

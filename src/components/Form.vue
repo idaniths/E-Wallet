@@ -7,11 +7,7 @@
             <input required class="cardnumber" type="text" 
                     placeholder="" 
                     v-model="form.cardNumber" 
-                    maxlength="16"
-                    >
-
-                    <!-- inputmode="numeric" 
-                     onkeypress="return /[0-9, ' ']/i.test(event.key)"  -->
+                    maxlength="16">
             <label>CARD HOLDER NAME</label>
             <input required class="cardname" type="text" 
                     onkeypress="return /[a-ö, ' ']/i.test(event.key)" 
@@ -22,7 +18,6 @@
             <label>YEAR</label>
         </div>
         <div class="month_year_select">
-           
             <select class="month" v-model="form.month">
                 <option v-for="month in months" 
                 :key="month">
@@ -45,8 +40,7 @@
             v-bind:key="vendor.name" 
             :value="vendor">
             {{vendor.name}}
-            </option>
-                    
+            </option>         
         </select>
 
         <button>ADD CARD</button>
@@ -158,7 +152,6 @@ form{
     margin-bottom: 2rem;
     font-family: PT Mono;
 }
-
 input{
     max-width: 376px;
     height: 56px;
@@ -167,8 +160,6 @@ input{
     background-color: white;
     border: 1px solid black;
     font-size: 1.2rem;
-   
-
 } 
 .vendor{
     width: 382px;
@@ -188,7 +179,6 @@ input{
     background-color: white;
     border: 1px solid black;
 }
-
 .month_year{
     display: flex;
     
@@ -210,7 +200,6 @@ label{
     padding-top: 1rem;
     font-size: 12px;
 }
-
 button{
     margin-top: 2.5rem;
     width: 382px;
@@ -221,9 +210,4 @@ button{
     border-radius: 0.5rem;
     font-size: 22px;
 }
-
-
-
-
-
 </style>

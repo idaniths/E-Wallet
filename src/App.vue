@@ -55,7 +55,6 @@ body{
   justify-content: center;
 }
 #app{
-margin: 2rem;
 display: flex;
 justify-content: center;
 width: 414px;

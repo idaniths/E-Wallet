@@ -1,6 +1,6 @@
 <template>
   <div>
-        <article class="card" :style="cardStyle" @click="$emit('click')" @dblclick="$emit('double')" >
+        <article class="card" :style="cardStyle" @click="$emit('click')" @mousedown="$emit('double')" >
             <img class="logo" :src="item.vendor.logo" alt="logo">
             <div class="upper">
                 <img :src="item.vendor.wifi" alt="">
@@ -109,9 +109,7 @@ div{
     margin-left: 1rem;
     margin-right: 1rem;
     font-family: PT Mono;
-    text-shadow: 1px 0px 0px rgba(0, 0, 0, 0.15), 0px 1px 0px rgba(0, 0, 0, 0.05),  -1px 0px 0px rgba(0, 0, 0, 0.05), 0px -1px 0px rgba(0, 0, 0, 0.15);
-    
-    
+    text-shadow: 1px 0px 0px rgba(0, 0, 0, 0.15), 0px 1px 0px rgba(0, 0, 0, 0.05),  -1px 0px 0px rgba(0, 0, 0, 0.05), 0px -1px 0px rgba(0, 0, 0, 0.15); 
 }
 .lower{
     margin-top: 4.5rem;
