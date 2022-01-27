@@ -18,6 +18,13 @@ import Addcard from './views/Addcard.vue'
 export default {
   components: {Home, Addcard},
   name: 'App',
+    data(){
+      return{
+        currentView: 'Home', 
+        
+        newArr:[]
+      }
+    },
   methods:{
     displayCard(card){
       this.currentView = 'Home'
@@ -28,13 +35,6 @@ export default {
       localStorage.setItem("cards", JSON.stringify(this.newArr)) 
     },
    
-  },
-  data(){
-    return{
-      currentView: 'Home', 
-      
-      newArr:[]
-    }
   },
   beforeMount(){
     if (localStorage.cards != 'undefined'){

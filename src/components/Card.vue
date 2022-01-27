@@ -54,22 +54,14 @@ export default {
      
     methods:{
         inputNumber() {
-            if (this.item.cardNumber.length <= 16) {
-            
-            
-      if(this.item.cardNumber == ''){
-        return 'XXXX XXXX XXXX XXXX'
-      } else {
-        return this.item.cardNumber.replace(/\d{4}(?=.)/g, '$& ').substring(0,19);
-      }
-            }
-        },
-        
-        //     oncardChange(item){
-            //         this.$emit('changeCardNum', item)
-    //     }
-
-    // },
+            if (this.item.cardNumber.length <= 16) {     
+                if(this.item.cardNumber == ''){
+                    return 'XXXX XXXX XXXX XXXX'
+                } else {
+                    return this.item.cardNumber.replace(/\d{4}(?=.)/g, '$& ').substring(0,19);
+                }
+                        }
+                    },
     
 }
 }

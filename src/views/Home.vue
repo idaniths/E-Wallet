@@ -126,16 +126,16 @@ button{
   align-self: flex-start;
 
 }
-.overlay{
+/* .overlay{
   position: fixed;
   z-index: 1;
   opacity: 60%;
   background-color: black;
-  width: 415px;
-  height: 898px;
+  width: 100vw;
+  height: 100vh;
   right: -1.1rem;
   top: -6.35rem;
-}
+} */
 
 
 </style>
