@@ -1,4 +1,4 @@
 module.export = {  
-    outputDir: 'dist',
+    outputDir: 'docs',
     publicPath: '/e-wallet/'
 }
