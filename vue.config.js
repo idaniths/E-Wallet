@@ -1,4 +1,4 @@
-module.export = {  
+module.exports = {
     outputDir: 'docs',
-    publicPath: '/e-wallet/'
+    publicPath: '/e-wallet/',
 }
