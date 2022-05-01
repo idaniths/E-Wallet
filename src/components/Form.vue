@@ -105,16 +105,10 @@ export default {
         ],
         years:[
             22,23,24,25,26,27,28
-        ],
-        
-
-          
+        ],   
     }
-},
-    
-    computed:{
-        
-        
+},  
+    computed:{ 
     },
     methods:{
         addCard(){
@@ -127,11 +121,7 @@ export default {
         cardPreview(){
             this.$emit('preview', this.form)
         },
-       
-        
-          
-        },
-    
+        },   
 }
 
 
