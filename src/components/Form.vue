@@ -118,7 +118,6 @@ export default {
     },
     methods:{
         addCard(){
-
                 this.$emit('add-card', {...this.form})
         },
 
