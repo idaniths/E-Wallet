@@ -118,16 +118,12 @@ export default {
     },
     methods:{
         addCard(){
-                this.$emit('add-card', {...this.form})
+            if (this.cards.find((number) => number.cardNumber == this.form.cardNumber)){
+              alert('Detta kort finns redan i din e-wallet!')
+            }else{
+            this.$emit('add-card', {...this.form});
+            }
         },
-
-        // addCard(){
-        //     if (this.cards.find((number) => number.cardNumber == this.form.cardNumber)){
-        //       alert('Detta kort finns redan i din e-wallet!')
-        //     }else{
-        //     this.$emit('add-card', {...this.form});
-        //     }
-        // },
         cardPreview(){
             this.$emit('preview', this.form)
         },
