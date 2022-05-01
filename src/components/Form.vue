@@ -118,11 +118,8 @@ export default {
     },
     methods:{
         addCard(){
-            if(this.cards.find(card => card.cardNumber === this.form.cardNumber)){
-                alert('Card already exists')
-            }else{
+
                 this.$emit('add-card', {...this.form})
-        }
         },
 
         // addCard(){
