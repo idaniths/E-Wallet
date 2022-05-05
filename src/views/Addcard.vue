@@ -36,17 +36,10 @@ export default {
       this.card = previewData
 
     },
-    // changeCardNum(newCardNum){
-    //   console.log('Yuval card num', newCardNum)
-    //   this.card = newCardNum;
-    // },
-    // showCard(event){
-    //   this.card = event    
-    //   },
+  
     currentView(newcard){
       this.$emit('sendit', newcard)
       this.card = {...newcard}
-      // console.log(this.card)
     }
   }
 };

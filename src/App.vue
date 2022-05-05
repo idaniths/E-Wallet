@@ -37,8 +37,12 @@ export default {
    
   },
   beforeMount(){
-    if (localStorage.cards != 'undefined'){
-    this.newArr = JSON.parse(localStorage.getItem("cards"));
+    if (localStorage.cards){
+      try{
+        this.newArr = JSON.parse(localStorage.getItem("cards"));
+      }catch(err){
+        this.newArr = []
+      }
     }
   },
   }
